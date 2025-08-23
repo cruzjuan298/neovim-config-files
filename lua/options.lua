@@ -1,4 +1,7 @@
 vim.opt.number = true
+
+vim.opt.spell = false
+
 vim.opt.relativenumber = true
 
 vim.opt.splitbelow = true
@@ -24,3 +27,7 @@ vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 
 vim.g.mapleader = " "
+
+vim.diagnostic.config({
+    virtual_lines = true
+})
