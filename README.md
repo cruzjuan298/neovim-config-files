@@ -11,6 +11,7 @@ The first portion of the plugin.lua file sets up lazy.nvim. In that table is whe
 - treesitter
 - portable package manager
 - lsp's
+- file explorers (newtr is set by default but oil.nvim is included for easy setup)
 
 I decided to use mason for my packagae manager (for now). To install lsp's, run the ```:MasonInstall {lsp name}``` or the ```:Mason``` command to see the menu of avilable lsp's.
 Lsp's will automatically be configured because of the function in the mason-lsp-config.nvim table.

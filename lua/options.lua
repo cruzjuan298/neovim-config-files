@@ -31,3 +31,20 @@ vim.g.mapleader = " "
 vim.diagnostic.config({
     virtual_lines = true
 })
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+
+vim.keymap.set({'n', 'v', 's', 'o'}, '<Up>', '<Nop>', {noremap = true, silent = true})
+vim.keymap.set({'n', 'v', 's', 'o'}, '<Down>', '<Nop>', {noremap = true, silent = true})
+vim.keymap.set({'n', 'v', 's', 'o'}, '<Left>', '<Nop>', {noremap = true, silent = true})
+vim.keymap.set({'n', 'v', 's', 'o'}, '<Right>', '<Nop>', {noremap = true, silent = true})
+
+
+vim.keymap.set('i', '<Up>', '<Nop>', {noremap = true, silent = true})
+vim.keymap.set('i', '<Down>', '<Nop>', {noremap = true, silent = true})
+vim.keymap.set('i', '<Left>', '<Nop>', {noremap = true, silent = true})
+vim.keymap.set('i', '<Right>', '<Nop>', {noremap = true, silent = true})
+
+

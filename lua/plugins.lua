@@ -25,9 +25,9 @@ require("lazy").setup({
                 vim.cmd.colorscheme("moonfly")
             end,
         },
-        {                                      
-        "nvim-treesitter/nvim-treesitter",  
-            branch = "master",                  
+        {
+            "nvim-treesitter/nvim-treesitter", 
+            branch = "master",
             lazy = false,
             build = ":TSUpdate",
             config = function()
@@ -160,11 +160,72 @@ require("lazy").setup({
               },
             },
           },
+        },
+
+        {
+            "nvim-tree/nvim-tree.lua",
+            lazy = true,
+            dependencies = {
+              "nvim-tree/nvim-web-devicons",
+            },
+            config = function()
+                require("nvim-tree").setup({})
+            end,
+        },
+
+        {
+            "stevearc/oil.nvim",
+            config = function()
+                require("oil").setup({
+
+                default_file_explorer = false,
+                columns = {
+                    "icons",
+                    "permissions",
+                    "size",
+                    "mtime",
+                },
+
+                buff_options = {
+                    buflisted = false,
+                    bufhidden = "hide",
+                },
+
+                win_options = {
+                    wrap = false,
+                    signcolumn = "no",
+                    cursorcolumn = "false",
+                    foldcolumn = "0",
+                    spell = false,
+                    list = false,
+                    conceallevel = 3,
+                    concealcursor = "nvic",
+                },
+
+                delete_to_trash = false,
+                skip_confirm_for_simple_edits = false,
+                prompt_save_on_select_new_entry = true,
+                cleanup_delay_ms = 2000,
+
+                lsp_file_methods = {
+                    enabled = true,
+                    timeout_ms = 1000,
+                    autosave_changes = false,
+                },
+
+                watch_for_changes = true,
+
+                ssh = {
+                   border = "rounded",
+                },
+
+                })
+            end,
+
         }
 
-
-    },    
+    },
   install = { colorscheme = { "habamax" } },
   checker = { enabled = true },
-    
+
 })
