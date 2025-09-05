@@ -46,7 +46,13 @@ require("lazy").setup({
                         "javascript",
                         "c",
                         "vimdoc",
-                        "query"
+                        "query",
+                        "make",
+                        "css",
+                        "dockerfile",
+                        "go",
+                        "html",
+                        "json",
                     },
                     
                     auto_install = true,
@@ -163,13 +169,21 @@ require("lazy").setup({
         },
 
         {
-            "nvim-tree/nvim-tree.lua",
-            lazy = true,
+            "nvim-neo-tree/neo-tree.nvim",
+            lazy = false,
+            branch = "v3.x",
             dependencies = {
-              "nvim-tree/nvim-web-devicons",
+                "nvim-tree/nvim-web-devicons",
+                "MunifTanjim/nui.nvim",
+                "nvim-lua/plenary.nvim",
             },
-            config = function()
-                require("nvim-tree").setup({})
+           config = function()
+                require("neo-tree").setup({
+                    filtered_items = {
+                        visible = false,
+                        hide_gitignored = true,
+                    }
+                })
             end,
         },
 
@@ -222,6 +236,16 @@ require("lazy").setup({
                 })
             end,
 
+        },
+        
+        {
+            "brianhuster/live-preview.nvim",
+            dependencies = {
+                "nvim-telescope/telescope.nvim",    
+            config = function()
+                    require("livepreview.config").set()
+                end,
+            },
         }
 
     },
