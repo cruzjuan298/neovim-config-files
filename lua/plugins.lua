@@ -25,6 +25,15 @@ require("lazy").setup({
                 vim.cmd.colorscheme("moonfly")
             end,
         },
+
+        {
+            "nvim-lua/plenary.nvim",
+        },
+
+        {
+            "nvim-telescope/telescope.nvim",
+        },
+
         {
             "nvim-treesitter/nvim-treesitter", 
             branch = "master",
@@ -237,15 +246,21 @@ require("lazy").setup({
             end,
 
         },
-        
+
         {
             "brianhuster/live-preview.nvim",
             dependencies = {
-                "nvim-telescope/telescope.nvim",    
+                "nvim-telescope/telescope.nvim",
             config = function()
                     require("livepreview.config").set()
                 end,
             },
+        },
+
+        {
+            "ThePrimeagen/harpoon",
+            branch = "harpoon2",
+            dependencies= { "nvim-lua/plenary.nvim" }
         }
 
     },
