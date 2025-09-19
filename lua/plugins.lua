@@ -32,10 +32,16 @@ require("lazy").setup({
 
         {
             "nvim-telescope/telescope.nvim",
+            tag = '0.1.4',
         },
 
         {
-            "nvim-treesitter/nvim-treesitter", 
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make'
+        },
+
+        {
+            "nvim-treesitter/nvim-treesitter",
             branch = "master",
             lazy = false,
             build = ":TSUpdate",
@@ -49,9 +55,9 @@ require("lazy").setup({
                     },
 
                     ensure_installed = {
-                        "lua", 
-                        "vim", 
-                        "python", 
+                        "lua",
+                        "vim",
+                        "python",
                         "javascript",
                         "c",
                         "vimdoc",
