@@ -20,9 +20,9 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
         {
-          "bluz71/vim-moonfly-colors",
+            "yorumicolors/yorumi.nvim",
             config = function()
-                vim.cmd.colorscheme("moonfly")
+                vim.cmd.colorscheme("yorumi")
             end,
         },
 
@@ -194,9 +194,11 @@ require("lazy").setup({
             },
            config = function()
                 require("neo-tree").setup({
-                    filtered_items = {
-                        visible = false,
-                        hide_gitignored = true,
+                    filesystem = {
+                        filtered_items = {
+                            visible = true,
+                            hide_dotfiles = false,
+                        }
                     }
                 })
             end,
@@ -267,7 +269,39 @@ require("lazy").setup({
             "ThePrimeagen/harpoon",
             branch = "harpoon2",
             dependencies= { "nvim-lua/plenary.nvim" }
-        }
+        },
+
+        {
+              "folke/flash.nvim",
+              event = "VeryLazy",
+              opts = {},
+              keys = {
+                { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+                { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+                { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+                { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+                { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+              },
+        },
+
+        {
+            "kdheepak/lazygit.nvim",
+            lazy = true,
+            cmd = {
+                "LazyGit",
+                "LazyGitConfig",
+                "LazyGitCurrentFile",
+                "LazyGitFilter",
+                "LazyGitFilterCurrentFile",
+            },
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+            },
+            keys = {
+                { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+            }
+        },
+
 
     },
   install = { colorscheme = { "habamax" } },
